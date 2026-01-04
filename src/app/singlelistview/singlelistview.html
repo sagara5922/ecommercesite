@@ -1,0 +1,42 @@
+<section class="product-detail" *ngIf="singleproduct; else loading">
+  <div class="product-container">
+
+    <!-- Product Image -->
+    <div class="image-section">
+      <img 
+        [src]="singleproduct.thumbnail" 
+        alt="{{ singleproduct.title }}" 
+        class="product-image"
+      />
+      <div class="image-badge">Trending</div>
+    </div>
+
+    <!-- Product Details -->
+    <div class="details-section">
+      <h1>{{ singleproduct.title }}</h1>
+      <p class="category">{{ singleproduct.category | titlecase }}</p>
+      <p class="price">$ {{ singleproduct.price }}</p>
+
+      <p class="description">{{ singleproduct.description }}</p>
+
+      <div class="actions">
+        <button class="btn-primary">Add to Cart</button>
+        <a routerLink="/card" class="btn-outline">Back to Products</a>
+      </div>
+      
+      <!-- Ratings -->
+      <div class="ratings">
+        <span *ngFor="let star of [].constructor(5); let i = index">
+          <i class="star" [class.filled]="i < singleproduct.rating">★</i>
+        </span>
+        <span class="rating-value">({{ singleproduct.rating }})</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<ng-template #loading>
+  <div class="loading-container">
+    <p>Loading product details...</p>
+  </div>
+</ng-template>

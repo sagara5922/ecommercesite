@@ -1,0 +1,92 @@
+<!-- ================= HERO CAROUSEL ================= -->
+<section
+  class="hero"
+  [style.backgroundImage]="
+    activeProduct
+      ? 'url(' + activeProduct.thumbnail + ')'
+      : 'linear-gradient(#0f172a, #020617)'
+  "
+>
+  <div class="hero-overlay">
+    <div class="hero-content">
+      <span class="badge">Trending Now</span>
+
+      <h1>{{ activeProduct?.title || 'Loading products...' }}</h1>
+      <p>{{ activeProduct?.description || 'Fetching best deals for you' }}</p>
+
+      <div class="hero-actions">
+        <a routerLink="/card" class="btn-primary">Shop Now</a>
+        <a routerLink="/card" class="btn-outline">View Deals</a>
+      </div>
+    </div>
+
+    <!-- Carousel Arrows -->
+    <button class="nav left" (click)="prev()">‹</button>
+    <button class="nav right" (click)="next()">›</button>
+
+    <!-- Carousel Dots -->
+    <div class="dots">
+      <span
+        *ngFor="let p of products; let i = index"
+        [class.active]="i === activeIndex"
+        (click)="goTo(i)"
+      ></span>
+    </div>
+  </div>
+</section>
+
+<!-- ================= CATEGORIES ================= -->
+<section class="categories">
+  <h2>Popular Categories</h2>
+
+  <div class="category-grid">
+    <div class="category-card" routerLink="/card">
+      <img src="https://images.unsplash.com/photo-1511707171634-5f897ff02aa9">
+      <h3>Smartphones</h3>
+      <p>Latest technology</p>
+    </div>
+
+    <div class="category-card" routerLink="/card">
+      <img src="https://images.unsplash.com/photo-1517336714731-489689fd1ca8">
+      <h3>Laptops</h3>
+      <p>Power & performance</p>
+    </div>
+
+    <div class="category-card" routerLink="/card">
+      <img src="https://sp.yimg.com/ib/th/id/OIP.cMoKrSKyds0RS0Im1TyQjwHaK9?pid=Api&w=148&h=148&c=7&dpr=2&rs=1">
+      <h3>Fragrances</h3>
+      <p>Luxury scents</p>
+    </div>
+
+    <div class="category-card" routerLink="/card">
+      <img src="https://images.unsplash.com/photo-1612817288484-6f916006741a">
+      <h3>Skincare</h3>
+      <p>Glow everyday</p>
+    </div>
+  </div>
+</section>
+
+<!-- ================= TRUST SECTION ================= -->
+<section class="trust">
+  <div class="trust-card">
+    <h3>🚚 Fast Delivery</h3>
+    <p>Quick shipping across India</p>
+  </div>
+
+  <div class="trust-card">
+    <h3>🔐 Secure Payment</h3>
+    <p>100% safe checkout</p>
+  </div>
+
+  <div class="trust-card">
+    <h3>⭐ Premium Quality</h3>
+    <p>Top-rated products</p>
+  </div>
+</section>
+
+<!-- ================= CTA ================= -->
+<section class="cta">
+  <h2>Upgrade Your Shopping Experience</h2>
+  <p>Hand-picked products just for you</p>
+  <a routerLink="/card" class="btn-primary">Explore Products</a>
+</section>

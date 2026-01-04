@@ -1,0 +1,119 @@
+<!-- <div class="row">
+ <div class="col-md-4 mb-3" *ngFor="let item of repeat; let i = index">
+ <div class="card" style="width: 18rem;">
+  <img src=".." class="card-img-top" alt="...">
+  <div class="card-body">
+    <h5 class="card-title">Card title</h5>
+    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card’s content.</p>
+    <a href="#" class="btn btn-primary">Go somewhere</a>
+  </div>
+</div>
+ </div>
+</div>  -->
+
+<!-- 
+<div class="card-container">
+@for (item of products; track item.id) {
+  <div class="card">
+    <img src="{{item.image}}" alt="product image"class="product-img"/> 
+      <h2>{{item.title}}</h2>
+      <p>{{item.price}}</p>
+  </div>
+
+
+<div class="container">
+    <div class="store-grid">
+        @for(item of products; track item.id) {
+            <div class="card">
+                <img src="{{item.image}}" class="product-img" alt="{{item.title}}"/>
+                <div class="card-body">
+                    <h5 class="card-title">{{item.title}}</h5>
+                    <p class="card-price">{{item.price | currency}}</p>
+                    <button class="btn btn-primary">Add to Cart</button>
+                </div>
+            </div>
+        }
+    </div>
+</div>
+
+<style>
+.store-grid {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    gap: 1rem;
+}
+
+.card {
+    width: 100%;
+    max-width: 200px;
+    display: flex;
+    flex-direction: column;
+}
+
+.card-body {
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+}
+
+.card-body button {
+    margin-top: auto;
+}
+</style>
+} -->
+
+<div class="container">
+  <div class="store-grid">
+    @if (products.length === 0) {
+    <div class="no-products">
+      <h3>Loading products...</h3>
+      <p>If this persists, please check the console for errors.</p>
+    </div>
+    }
+    @for (item of products; track item.id) {
+    <div class="card">
+      <img src="{{ item.thumbnail }}" class="product-img" alt="{{ item.title }}" />
+      <div class="card-body">
+        <h5 class="card-title">{{ item.title }}</h5>
+        <p class="card-price">{{ item.price | currency }}</p>
+        <button class="btn btn-primary">Add to Cart</button>
+        <a [routerLink]="['/singlelist-view',item.id]">Goto</a>
+                
+      </div>
+    </div>
+    <!-- </div> -->
+    }
+  </div>
+  <!-- </div> -->
+
+  <style>
+    .store-grid {
+      display: grid;
+      grid-template-columns: repeat(5, 1fr);
+      /* 5 equal columns */
+      gap: 1rem;
+    }
+
+    .no-products {
+      text-align: center;
+      width: 100%;
+      padding: 20px;
+    }
+
+    .card {
+      width: 100%;
+      max-width: 200px;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .card-body {
+      display: flex;
+      flex-direction: column;
+      flex: 1;
+    }
+
+    .card-body button {
+      margin-top: auto;
+    }
+  </style>

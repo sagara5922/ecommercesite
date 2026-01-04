@@ -1,0 +1,60 @@
+.navbar {
+  background-color: #0f1029;
+  padding: 14px 40px;
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+}
+
+.container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+/* Brand */
+.brand-icon {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  color: #ffffff;
+  text-decoration: none;
+}
+
+.brand-name {
+  font-size: 20px;
+  font-weight: 700;
+}
+
+/* Buttons */
+.nav-buttons {
+  display: flex;
+  gap: 16px;
+}
+
+.yellow-btn {
+  padding: 8px 18px;
+  border-radius: 6px;
+  background-color: transparent;
+  color: #e5e7eb;
+  text-decoration: none;
+  font-weight: 500;
+  border: 1px solid transparent;
+  transition: 0.3s ease;
+}
+
+.yellow-btn:hover {
+  background-color: #1e293b;
+}
+
+/* Active Route */
+.yellow-btn.active {
+  background-color: #facc15;
+  color: #0f172a;
+  font-weight: 600;
+}
+
+/* Highlight button (Cart) */
+.yellow-btn.highlight {
+  border: 1px solid #facc15;
+}
